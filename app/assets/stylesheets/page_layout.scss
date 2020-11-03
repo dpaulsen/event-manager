@@ -1,0 +1,68 @@
+
+$slate-gray: #2c3840; 
+
+$color-00: #ff69b4;
+$color-01: #b0e0e6;
+$color-02: #7fffd4;
+$color-03: #ffdab9;
+$color-04: #d87bd8;
+$color-05: #fdce55;
+$color-06: #f7b946;
+
+
+
+.sticky-footer-css {
+  height: 100vh;
+  display: flex;
+}
+
+.sticky-footer-css-body {
+  overflow: auto;
+
+  .leftpane{
+    background-color: $color-02;
+  }
+  .centerpane{
+    background-color: $color-04;
+  }
+  .rightpane {
+    background-color: $color-06;
+  }
+}
+
+.sticky-footer-css{
+  .header {
+    background-color: $color-03;
+    height: 10rem;
+    color: #fff;
+    padding: 3rem;
+
+    .menu a {
+      color: #fff;
+    }
+  }
+
+  .body-content {
+    .leftpane{
+      background-color: $color-02;
+    }
+    .centerpane{
+      background-color: $color-04;
+    }
+    .rightpane {
+      background-color: $color-06;
+    }
+  }
+
+
+  .footer {
+    height: 10rem;
+    background-color: $color-05;
+    color: #fff;
+    padding: 3rem;
+
+    .menu a {
+      color: #fff;
+    }
+  }
+}
