@@ -1,0 +1,49 @@
+
+$color01: red;
+$color02: blue;
+$color03: green;
+$color04: yellow;
+$color05: orange;
+$color06: purple;
+$color07: brown;
+$color08: pink;
+$color09: grey;
+
+.wrapper{
+
+  background-color: $color08;
+  
+}
+
+// .wrapper2{
+//   height: 500px;
+// }
+
+
+.headerpane{
+  background-color: $color07;
+  position: sticky;
+  top: 0px;
+
+}
+
+.footerpane{
+  background-color: $color06;
+  position: sticky;
+  bottom: 0px;
+}
+
+.mainpane{
+  background-color: $color03;
+}
+
+.leftpane{
+  background-color: $color04;
+}
+.rightpane{
+  background-color: $color05;
+}
+
+.centerpane{
+  background-color: $color09;
+}
