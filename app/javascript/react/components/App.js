@@ -6,7 +6,7 @@ import TestLayout from "./TestLayout"
 export const App = (props) => {
   return (<div>
     <BrowserRouter>
-      <Route path ="/" component = {TestLayout}/>
+      <Route path ="/" component = {PageLayout}/>
      </BrowserRouter>
 
   </div>)

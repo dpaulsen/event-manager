@@ -3,84 +3,54 @@ import {Switch, Route} from "react-router-dom"
 
 const PageLayout = (props) => {
 
+  // temp for display purposes only 
+  //(remove once other pieces are up)
+  const list = []
+  for (let i= 1; i<=30; i++){
+    list.push(<li key={i}> {i} </li>)
+  }
+  const listElement = (
+    <ul>
+      {list}
+    </ul>
+  )
+  
+  ////////
 
   return (
-    <div className="sticky-footer-css">
-      <div className="row expanded flex-dir-column">
+    <div lassName="grid-y grid-margin-y grid-frame wrapper2">
 
-      <div className="columns shrink header text-center">
-        <div className="top-bar">
-          <h3>navbar here... with bread crumbs?</h3>
-        </div> 
-        <p>Header</p>
-        <ul className="menu align-center">
-          <li><a href="">Link</a></li>
-          <li><a href="">Link</a></li>
-          <li><a href="">Link</a></li>
-        </ul>
-      </div>
-
-      <div className="columns sticky-footer-css-body text-center">
-       
-        <div className="leftpane">
-
-          <h3> left </h3>
+      <div className = "cell shirnk small-1 medium-2 large-2 headerpane">
+          <h2>  top </h2>
         </div>
 
-        <div className="centerpane">
-          <div>
-            <h3> center </h3>
+        <div className = "cell auto small-4 medium-8 large-8 mainpane" >
+          <div className = "grid-x grid-margin-x" style={{ height: "100%" }}>
+
+            <div className = "cell small-1 medium-2 large-2 cell-block-y leftpane" style={{ height: "100%" }}>
+              <h2> left</h2>
+              {listElement}
+            </div>
+
+            <div className = "cell auto centerpane cell-block-y">
+                <h2> center </h2> 
+                {listElement}
+            </div>
+
+            <div className ="cell small-1 medium-2 large-2 cell-block-y rightpane">
+              <h2> right </h2>
+              {listElement}
+            </div>
+
           </div>
-
-          <p>Body Content</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          
-          {/* 
-          <p> 
-            
-            <img src="https://placeholder.pics/svg/300x300/1797FF-773BFF" alt="" />
-            <img src="https://placeholder.pics/svg/300x300/1797FF-773BFF" alt="" />
-            <img src="https://placeholder.pics/svg/300x300/1797FF-773BFF" alt="" /></p>
-            
-            
-          */}
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse beatae aspernatur tempore similique enim, doloribus et ullam quam itaque sit! Molestias, perspiciatis omnis illo aliquam dignissimos laborum iste? Autem, esse?</p>
-          
         </div>
 
-        <div className="rightpane">
-          <h3> right</h3> 
+        <div className="cell shrink small-1 medium-2 large-2 footerpane" > 
+          <h2> bottom </h2>
         </div>
 
-      </div>
-
-    
-
-        <div className="columns shrink footer text-center">
-          <p>Footer</p>
-          <ul className="menu align-center">
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>)
-      
+    </div>
+  )
 }
   
 export default PageLayout 
