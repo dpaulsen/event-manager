@@ -3,8 +3,7 @@ import {Switch, Route} from "react-router-dom"
 
 const PageLayout = (props) => {
 
-  // temp for display purposes only 
-  //(remove once other pieces are up)
+  // generate content for testing scrolling on page
   const list = []
   for (let i= 1; i<=30; i++){
     list.push(<li key={i}> {i} </li>)
@@ -14,13 +13,12 @@ const PageLayout = (props) => {
       {list}
     </ul>
   )
-  
-  ////////
 
-  return (
-    <div lassName="grid-y grid-margin-y grid-frame wrapper2">
-
-      <div className = "cell shirnk small-1 medium-2 large-2 headerpane">
+  return(
+    
+      <div className="grid-y grid-margin-y grid-frame wrapper" > 
+      
+        <div className = "cell shirnk small-1 medium-2 large-2 headerpane">
           <h2>  top </h2>
         </div>
 
@@ -48,11 +46,11 @@ const PageLayout = (props) => {
         <div className="cell shrink small-1 medium-2 large-2 footerpane" > 
           <h2> bottom </h2>
         </div>
+ 
+      </div>
 
-    </div>
   )
+
 }
-  
-export default PageLayout 
 
-
+export default PageLayout

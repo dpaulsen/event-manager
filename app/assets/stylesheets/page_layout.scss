@@ -8,22 +8,10 @@ $color06: purple;
 $color07: brown;
 $color08: pink;
 $color09: grey;
-$color-00: #ff69b4;
-$color-01: #b0e0e6;
-$color-02: #7fffd4;
-$color-03: #ffdab9;
-$color-04: #d87bd8;
-$color-05: #fdce55;
-$color-06: #f7b946;
 
 .wrapper{
   background-color: $color08;
 }
-
-.wrapper2{
-  background-color: $color07;
-}
-
 
 .headerpane{
   background-color: $color07;
@@ -51,4 +39,3 @@ $color-06: #f7b946;
 .centerpane{
   background-color: $color09;
 }
-
