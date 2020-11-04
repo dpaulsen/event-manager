@@ -9,24 +9,56 @@ $color-04: #d87bd8;
 $color-05: #fdce55;
 $color-06: #f7b946;
 
-
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
 .sticky-footer-css {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 8fr 1fr;
+  grid-gap: 20px;
+  @media screen and (max-width: 60em){
+    grid-template-rows: 2fr 1fr 5fr 1fr;
+  }
 }
 
 .sticky-footer-css-body {
-  overflow: auto;
+  height: 30rem;
+ 
+
+  .leftpane,
+  .centerpane,
+  .rightpane{
+    padding: 1rem;
+    border: 1px solid #00ff00
+  }
+
 
   .leftpane{
     background-color: $color-02;
+    grid-row-start: 2;
+    grid-column-start:1;
+    grid-column-end: 4;
   }
   .centerpane{
+    overflow-y: auto;
+    flex-grow: 1;
     background-color: $color-04;
+    grid-row-start: 3;
+    grid-column-start:1;
+    grid-column-end: 4;
   }
   .rightpane {
     background-color: $color-06;
+    grid-row-start: 4;
+    grid-column-start:1;
+    grid-column-end: 4;
   }
 }
 
@@ -40,22 +72,15 @@ $color-06: #f7b946;
     .menu a {
       color: #fff;
     }
-  }
 
-  .body-content {
-    .leftpane{
-      background-color: $color-02;
-    }
-    .centerpane{
-      background-color: $color-04;
-    }
-    .rightpane {
-      background-color: $color-06;
-    }
+    flex-shrink: 0;
   }
 
 
   .footer {
+    position: fixed;
+    left:0;
+    bottom:0;
     height: 10rem;
     background-color: $color-05;
     color: #fff;
@@ -64,5 +89,7 @@ $color-06: #f7b946;
     .menu a {
       color: #fff;
     }
+
+    flex-shrink: 0;
   }
 }
