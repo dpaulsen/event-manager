@@ -15,3 +15,13 @@
  *= require foundation_and_overrides
 
  */
+
+ h1{
+   font-family: cursive;
+ }
+
+ .top-bar{
+   background-color: salmon;
+   position: sticky;
+ }
+ 
