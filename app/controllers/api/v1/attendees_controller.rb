@@ -7,8 +7,8 @@ class Api::V1::AttendeesController < ApiController
 
   def show
     binding.pry
-
-    render json: Attendee.find(params[:id])
+    attendee = Attendee.find(params[:id])
+    render json: attendee  #, serializer: AttendeeSerializer  #notworking TODO
   end
 
 end
