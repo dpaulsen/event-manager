@@ -6,7 +6,7 @@ const MainPage = (props) => {
   return(
     <div>
       main page links:
-      <Link to="attendees/"> Guest List </Link>
+      <Link to="/attendees/"> Guest List </Link>
 
     </div>
 
