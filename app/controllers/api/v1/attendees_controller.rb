@@ -12,7 +12,11 @@ class Api::V1::AttendeesController < ApiController
   end
 
   def update
-    binding.pry
+    #binding.pry
+
+    attendee = Attendee.find(params[:id])
+    attendee.update_attributes(attendee_params)
+    render json: attendee , serializer: AttendeeSerializer
   end
 
   def create
@@ -21,6 +25,21 @@ class Api::V1::AttendeesController < ApiController
 
   def destroy
     binding.pry
+  end
+
+  private
+
+  def attendee_params
+    
+    x = params.permit(:firstName, :lastName, :email)
+    y = {
+      :first_name => x[:firstName],
+      :last_name => x[:lastName],
+      :email => x[:email]
+    }
+    
+    #binding.pry
+    return y
   end
 
 end
