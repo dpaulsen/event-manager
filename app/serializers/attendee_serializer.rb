@@ -3,15 +3,15 @@ class AttendeeSerializer < ActiveModel::Serializer
   attributes :id, :firstName, :lastName, :email, :fullName
 
   def firstName
-    first_name
+    object.first_name
   end
 
   def lastName
-    last_name
+    object.last_name
   end
 
   def fullName
-    return "#{first_name} #{last_name}"
+    return "#{object.first_name} #{object.last_name}"
   end
 
 end

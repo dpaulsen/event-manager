@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
+import AttendeeFormPage from "./AttendeeFormPage"
 
 
 import AttendeeShowPage from "./AttendeeShowPage"
 
 const AttendeeSingleContainer =(props) =>{
 
-  const modes = { 
+  const MODES = { 
     SHOW: 'show',
     EDIT: 'edit',
     DELETE: 'delete'
@@ -13,13 +14,14 @@ const AttendeeSingleContainer =(props) =>{
 
   let id = props.match.params.id
 
-  const [mode, setMode] = useState(modes.SHOW)
+  const [mode, setMode] = useState(MODES.SHOW)
 
   const [attendee, setAttendee] = useState({
     id: null,
-    first_name: null,
-    last_name: null,
-    email: null
+    firstName: null,
+    lastName: null,
+    email: null,
+    fullName: null,
   })
 
   useEffect(() => {
@@ -43,29 +45,85 @@ const AttendeeSingleContainer =(props) =>{
         debugger
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
-  }, []);
-
-  let displayTile = null;
-
+    }, []);
+    
+    const updateAttendee = (updates) => {
+      debugger
+        let payload = updates;
+        fetch(`/api/v1/attendees/${attendee.id}`, {
+          credentials: "same-origin",
+          method: "PATCH",
+          body: JSON.stringify(payload),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response;
+            } else {
+              let errorMessage = `${response.status} (${response.statusText})`,
+                error = new Error(errorMessage);
+              throw error;
+            }
+          })
+          .then((response) => response.json())
+          .then((updatedAttendee) => {
+            if (!updatedAttendee.errors) {
+  
+              setAttendee(updateAttendee);
+            } else if (review.errors) {
+              setErrors(review.errors);
+            }
+          })
+          .catch((error) => console.error(`Error in fetch: ${error.message}`));
+    };
+    
+    let displayTile = null;
+  
+    const onCancleHandler = (event) =>{
+      setMode(MODES.SHOW);
+      debugger
+    }
+    
+  // ??  TODO design choice 
   if (id ==="new"){
     displayTile = (<p> new page </p>)
-  } else if(true){
+  } else{
     debugger
-    displayTile = (<AttendeeShowPage attendee = {attendee}
-    />)
-  } else{ 
-  displayTile = (<p> that is not implemented</p>)
-}
+    switch (mode) {
+      case MODES.SHOW:
+        displayTile = (<AttendeeShowPage attendee = {attendee}
+          />)
+        break;
+      case MODES.EDIT:
+        displayTile = (<AttendeeFormPage 
+          attendee = {attendee}
+          onCancleHandler = {onCancleHandler}
+          submitAttendee = { updateAttendee}
+        />)
+        break;
+      case MODES.DELETE: 
+
+      default : 
+      displayTile = (<p> that is not implemented</p>)
+    }
+
+  } 
+
+
+
   
   let modeTemp = null;
   switch (mode) {
-    case modes.SHOW:
+    case MODES.SHOW:
       modeTemp =(<p> mode is show </p>);
       break;
-    case modes.EDIT:
+    case MODES.EDIT:
       modeTemp =(<p> mode is edit </p>);
       break;
-    case modes.DELETE:
+    case MODES.DELETE:
       modeTemp =(<p> mode is delete </p>);
       break;
     default: 
@@ -76,46 +134,48 @@ const AttendeeSingleContainer =(props) =>{
     debugger
     switch (event.currentTarget.id) {
       case "edit-attendee":
-        setMode(modes.EDIT);
+        setMode(MODES.EDIT);
         break;
       case "delete-attendee":
-        setMode(modes.DELETE);
+        setMode(MODES.DELETE);
         break;
       case "show-attendee":
-        setMode(modes.SHOW);
+        setMode(MODES.SHOW);
         break;
       default :
         console.error(`that mode ${event.currentTarget.id} is not recognized`)
     }
   }
-  
+
+
   let buttonModesGroup = null;
 
   buttonModesGroup = (<div>
     <button 
-    type = "button"
-    id = "edit-attendee"
-    onClick = {onModeClick}
+      type = "button"
+      id = "edit-attendee"
+      onClick = {onModeClick}
     >
-    Edit
+      Edit
     </button>
     <button 
-    type = "button"
-    id = "delete-attendee"
-    onClick = {onModeClick}
+      type = "button"
+      id = "delete-attendee"
+      onClick = {onModeClick}
     >
-    Delete
+      Delete
     </button>
     <button 
-    type = "button"
-    id = "show-attendee"
-    onClick = {onModeClick}
+      type = "button"
+      id = "show-attendee"
+      onClick = {onModeClick}
     >
-    Show
+      Show
     </button>
   </div>);
 
- 
+  
+
 
   return( 
     <div>
@@ -139,8 +199,6 @@ const AttendeeSingleContainer =(props) =>{
         check name: 
         {attendee.first_name}
       </div>
-
-
 
     </div>
   )
