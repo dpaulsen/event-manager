@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
+import {Redirect} from "react-router-dom"
+
 import AttendeeFormPage from "./AttendeeFormPage"
-
-
 import AttendeeShowPage from "./AttendeeShowPage"
+import AttendeeDeletePage from"./AttendeeDeletePage"
 
 const AttendeeSingleContainer =(props) =>{
 
@@ -12,9 +13,10 @@ const AttendeeSingleContainer =(props) =>{
     DELETE: 'delete'
   }
 
-  let id = props.match.params.id
+  let id = props.match.params.id;
 
-  const [mode, setMode] = useState(MODES.SHOW)
+  const [mode, setMode] = useState(MODES.SHOW);
+  const [toIndex, setToIndex] = useState(false);
 
   const [attendee, setAttendee] = useState({
     id: null,
@@ -25,11 +27,9 @@ const AttendeeSingleContainer =(props) =>{
   })
 
   useEffect(() => {
-    debugger 
     if (id !== "new")
     fetch(`/api/v1/attendees/${id}`)
       .then((response) => {
-        debugger
         if (response.ok) {
           return response;
         } else {
@@ -40,15 +40,12 @@ const AttendeeSingleContainer =(props) =>{
       })
       .then((response) => response.json())
       .then((body) => {
-        debugger
         setAttendee(body);
-        debugger
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
     }, []);
     
     const updateAttendee = (updates) => {
-      debugger
         let payload = updates;
         fetch(`/api/v1/attendees/${attendee.id}`, {
           credentials: "same-origin",
@@ -71,10 +68,37 @@ const AttendeeSingleContainer =(props) =>{
           .then((response) => response.json())
           .then((updatedAttendee) => {
             if (!updatedAttendee.errors) {
-  
-              setAttendee(updateAttendee);
+              setAttendee(updatedAttendee);
+              setMode(MODES.SHOW)
             } else if (review.errors) {
               setErrors(review.errors);
+            }
+          })
+          .catch((error) => console.error(`Error in fetch: ${error.message}`));
+    };
+
+    const deleteAttendee = () => {
+        fetch(`/api/v1/attendees/${attendee.id}`, {
+          credentials: "same-origin",
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response;
+            } else {
+              let errorMessage = `${response.status} (${response.statusText})`,
+                error = new Error(errorMessage);
+              throw error;
+            }
+          })
+          .then((response) => response.json())
+          .then((removeAttendee) => {
+            if (!removeAttendee.errors) {
+              setToIndex(true);
             }
           })
           .catch((error) => console.error(`Error in fetch: ${error.message}`));
@@ -84,14 +108,12 @@ const AttendeeSingleContainer =(props) =>{
   
     const onCancleHandler = (event) =>{
       setMode(MODES.SHOW);
-      debugger
     }
     
   // ??  TODO design choice 
   if (id ==="new"){
     displayTile = (<p> new page </p>)
   } else{
-    debugger
     switch (mode) {
       case MODES.SHOW:
         displayTile = (<AttendeeShowPage attendee = {attendee}
@@ -105,15 +127,17 @@ const AttendeeSingleContainer =(props) =>{
         />)
         break;
       case MODES.DELETE: 
-
+          displayTile = (<AttendeeDeletePage
+          attendee = {attendee}
+          onCancleHandler = {onCancleHandler}
+          confirmDelete = { deleteAttendee}
+          />)
+          break;
       default : 
       displayTile = (<p> that is not implemented</p>)
     }
 
   } 
-
-
-
   
   let modeTemp = null;
   switch (mode) {
@@ -131,7 +155,6 @@ const AttendeeSingleContainer =(props) =>{
   }
 
   const onModeClick = (event) =>{
-    debugger
     switch (event.currentTarget.id) {
       case "edit-attendee":
         setMode(MODES.EDIT);
@@ -175,7 +198,9 @@ const AttendeeSingleContainer =(props) =>{
   </div>);
 
   
-
+  if (toIndex){
+    return <Redirect to="/attendees/" />;
+  }
 
   return( 
     <div>

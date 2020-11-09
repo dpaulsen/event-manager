@@ -2,7 +2,6 @@ import React, {useState} from "react"
 
 
 const AttendeeFormPage = (props) => {
-  debugger
   
   const attendee = props.attendee
 
@@ -25,7 +24,6 @@ const AttendeeFormPage = (props) => {
     props.submitAttendee(formFields)
   }
 
-  debugger
   return( 
     <form onSubmit = {onSubmitHandle}>
 
@@ -45,7 +43,7 @@ const AttendeeFormPage = (props) => {
       <label
         className = ""
         htmlFor ="lastName">
-          First Name:
+          Last Name:
       </label>
       <input 
         className = "" 
@@ -58,7 +56,7 @@ const AttendeeFormPage = (props) => {
       <label
         className = ""
         htmlFor ="email">
-          First Name:
+          email:
       </label>
       <input 
         className = "" 
@@ -80,7 +78,7 @@ const AttendeeFormPage = (props) => {
         type = "button"
         onClick = {props.onCancleHandler}
       >
-        Don't Save XXX
+        Cancle - Don't Save
       </button>
 
     </form>
