@@ -6,8 +6,12 @@ import AttendeeNewContainer from "./attendee/AttendeeNewContainer"
 import AttendeeShowPage from "./attendee/AttendeeShowPage"
 import AttendeeSingleContainer from "./attendee/AttendeeSingleContainer"
 
-import MainPage from "./MainPage"
+import NavBar from "./NavBar"
 
+import MainPage from "./MainPage"
+import EventIndexContainer from "./event/EventIndexContainer"
+import ScrapbookIndexContainer from "./scrapbook/ScrapbookIndexContainer"
+import MessageIndexContainer from "./message/MessageIndexContainer"
 
 const PageLayout = (props) => {
 
@@ -35,6 +39,7 @@ const PageLayout = (props) => {
 
             <div className = "cell small-1 medium-2 large-2 cell-block-y leftpane" style={{ height: "100%" }}>
               <h2> left</h2>
+              <NavBar/>
               {listElement}
             </div>
 
@@ -45,6 +50,12 @@ const PageLayout = (props) => {
                   <Route exact path = "/attendees/" component ={AttendeeIndexContainer} />
                   <Route exact path = "/attendees/new" component = {AttendeeNewContainer} />
                   <Route path = "/attendees/:id" component = {AttendeeSingleContainer} />
+
+                  <Route exact path = "/events/" component ={EventIndexContainer} />
+
+                  <Route exact path = "/messages/" component ={MessageIndexContainer} />
+                  
+                  <Route exact path = "/scrapbooks/" component ={ScrapbookIndexContainer} />
                 </Switch>
             </div>
 
