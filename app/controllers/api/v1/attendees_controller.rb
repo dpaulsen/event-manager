@@ -20,11 +20,21 @@ class Api::V1::AttendeesController < ApiController
   end
 
   def create
-    binding.pry
+    #binding.pry
+    attendee = Attendee.new(attendee_params)
+
+    if attendee.save
+      render json: attendee
+    else
+      render json: { errors: review.errors.full_messages.to_sentence }
+    end
   end
 
   def destroy
-    binding.pry
+    #binding.pry
+    attendee = Attendee.find(params[:id])
+    attendee.destroy
+    render json: attendee
   end
 
   private

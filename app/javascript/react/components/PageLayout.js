@@ -2,6 +2,8 @@ import React from "react"
 import {Switch, Route} from "react-router-dom"
 
 import AttendeeIndexContainer from "./attendee/AttendeeIndexContainer"
+import AttendeeNewContainer from "./attendee/AttendeeNewContainer"
+import AttendeeShowPage from "./attendee/AttendeeShowPage"
 import AttendeeSingleContainer from "./attendee/AttendeeSingleContainer"
 
 import MainPage from "./MainPage"
@@ -41,6 +43,7 @@ const PageLayout = (props) => {
                 <Switch>
                   <Route exact path = "/" component ={MainPage} />
                   <Route exact path = "/attendees/" component ={AttendeeIndexContainer} />
+                  <Route exact path = "/attendees/new" component = {AttendeeNewContainer} />
                   <Route path = "/attendees/:id" component = {AttendeeSingleContainer} />
                 </Switch>
             </div>
