@@ -2,7 +2,11 @@ import React from "react"
 import {Switch, Route} from "react-router-dom"
 
 import AttendeeIndexContainer from "./attendee/AttendeeIndexContainer"
+import AttendeeSingleContainer from "./attendee/AttendeeSingleContainer"
+
 import MainPage from "./MainPage"
+
+
 const PageLayout = (props) => {
 
   // generate content for testing scrolling on page
@@ -33,13 +37,12 @@ const PageLayout = (props) => {
             </div>
 
             <div className = "cell auto centerpane cell-block-y">
+                <h2> center </h2> 
                 <Switch>
                   <Route exact path = "/" component ={MainPage} />
-                  <Route path ="/attendees/" component ={AttendeeIndexContainer} />
-
+                  <Route exact path = "/attendees/" component ={AttendeeIndexContainer} />
+                  <Route path = "/attendees/:id" component = {AttendeeSingleContainer} />
                 </Switch>
-                <h2> center </h2> 
-                {listElement}
             </div>
 
             <div className ="cell small-1 medium-2 large-2 cell-block-y rightpane">

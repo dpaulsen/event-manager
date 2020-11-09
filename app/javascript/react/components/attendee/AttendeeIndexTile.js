@@ -4,7 +4,7 @@ const AttendeeIndexTile = (props) => {
 const attendee = props.attendee
   return (
     <div>  
-      <Link > {attendee.first_name} {attendee.last_name}</Link>
+      <Link to = {`/attendees/${attendee.id}`}> {attendee.fullName} </Link>
 
     </div>
   )
