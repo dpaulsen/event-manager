@@ -13,6 +13,8 @@ const NavBar = (props) => {
       <Link className = "cell" to ="/events/"> Event List </Link>
       <br/> 
       <Link className = "cell" to ="/scrapbooks/"> Scrapbook </Link>
+      <br/> 
+      <Link className = "cell" to ="/messages/"> Messages </Link>
 
     </div>
   </div>)

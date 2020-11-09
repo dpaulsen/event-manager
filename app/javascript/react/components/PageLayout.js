@@ -9,9 +9,9 @@ import AttendeeSingleContainer from "./attendee/AttendeeSingleContainer"
 import NavBar from "./NavBar"
 
 import MainPage from "./MainPage"
-import EventIndexContainer from "./events/EventIndexContainer"
+import EventIndexContainer from "./event/EventIndexContainer"
 import ScrapbookIndexContainer from "./scrapbook/ScrapbookIndexContainer"
-
+import MessageIndexContainer from "./message/MessageIndexContainer"
 
 const PageLayout = (props) => {
 
@@ -52,6 +52,8 @@ const PageLayout = (props) => {
                   <Route path = "/attendees/:id" component = {AttendeeSingleContainer} />
 
                   <Route exact path = "/events/" component ={EventIndexContainer} />
+
+                  <Route exact path = "/messages/" component ={MessageIndexContainer} />
                   
                   <Route exact path = "/scrapbooks/" component ={ScrapbookIndexContainer} />
                 </Switch>

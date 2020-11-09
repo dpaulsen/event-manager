@@ -14,6 +14,7 @@ const MainPage = (props) => {
       <br/>
       <Link to="/scrapbooks/"> Scrapbook </Link>
       <br/>
+      <Link to="/messages/"> Messages </Link> 
     </div>
 
   )

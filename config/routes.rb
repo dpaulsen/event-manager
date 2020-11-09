@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get  '/attendees/:id', to: 'homes#index'
   
   get '/events/', to: 'homes#index'
+
+  get '/messages/', to: 'homes#index'
+
   get '/scrapbooks/', to: 'homes#index'
 
   devise_for :users
