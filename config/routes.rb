@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get '/attendees', to: 'homes#index'
   get  '/attendees/:id', to: 'homes#index'
   
-  get '/events/', to: 'homes#index'
+  # leaving events in path instead of meeting
+  # meeting is used to avoid ambigious name in code 
+  get '/events/', to: 'homes#index' 
 
   get '/messages/', to: 'homes#index'
 

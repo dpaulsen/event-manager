@@ -9,7 +9,7 @@ import AttendeeSingleContainer from "./attendee/AttendeeSingleContainer"
 import NavBar from "./NavBar"
 
 import MainPage from "./MainPage"
-import EventIndexContainer from "./event/EventIndexContainer"
+import EventIndexContainer from "./meeting/MeetingIndexContainer"
 import ScrapbookIndexContainer from "./scrapbook/ScrapbookIndexContainer"
 import MessageIndexContainer from "./message/MessageIndexContainer"
 
