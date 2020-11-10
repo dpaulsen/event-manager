@@ -9,7 +9,10 @@ import AttendeeSingleContainer from "./attendee/AttendeeSingleContainer"
 import NavBar from "./NavBar"
 
 import MainPage from "./MainPage"
-import EventIndexContainer from "./meeting/MeetingIndexContainer"
+
+import MeetingIndexContainer from "./meeting/MeetingIndexContainer"
+import MeetingSingleContainer from"./meeting/MeetingSingleContainer"
+
 import ScrapbookIndexContainer from "./scrapbook/ScrapbookIndexContainer"
 import MessageIndexContainer from "./message/MessageIndexContainer"
 
@@ -51,7 +54,8 @@ const PageLayout = (props) => {
                   <Route exact path = "/attendees/new" component = {AttendeeNewContainer} />
                   <Route path = "/attendees/:id" component = {AttendeeSingleContainer} />
 
-                  <Route exact path = "/events/" component ={EventIndexContainer} />
+                  <Route exact path = "/events/" component ={MeetingIndexContainer} />
+                  <Route path = "/events/:id" component = {MeetingSingleContainer}/>
 
                   <Route exact path = "/messages/" component ={MessageIndexContainer} />
                   
