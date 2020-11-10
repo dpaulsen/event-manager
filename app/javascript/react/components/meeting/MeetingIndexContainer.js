@@ -1,6 +1,6 @@
 import React from "react"
 
-const EventIndexContainer = (props) => {
+const MeetingIndexContainer = (props) => {
 
   return(
     <div>
@@ -10,4 +10,4 @@ const EventIndexContainer = (props) => {
   )
 }
 
-export default EventIndexContainer
+export default MeetingIndexContainer
