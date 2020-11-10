@@ -10,3 +10,9 @@ a1 = Attendee.create(first_name: "John", last_name: "Smith")
 a2 = Attendee.create(first_name: "Amy", last_name: "Skinner")
 a3 = Attendee.create(first_name: "Vanila", last_name: "Ice", email: "ice.ice@baby.com")
 
+m1 = Meeting.create(name: "Gala - for Lauren")
+m2 = Meeting.create(name: "Symposium on - Bikeshedding when is it necessary?", 
+                    description: "We might just get diverted by trivia..." )
+m3 = Meeting.create(name: "Bookclub - 50 Shades of React",
+                    description: "We will be review the finer literary points from the seminal novel by Dan S.")
+                    

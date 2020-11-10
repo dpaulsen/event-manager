@@ -43,7 +43,7 @@ const AttendeeSingleContainer =(props) =>{
         setAttendee(body);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
-    }, []);
+  }, []);
     
     const updateAttendee = (updates) => {
         let payload = updates;
