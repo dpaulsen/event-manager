@@ -3,11 +3,9 @@ import {Switch, Route} from "react-router-dom"
 
 import AttendeeIndexContainer from "./attendee/AttendeeIndexContainer"
 import AttendeeNewContainer from "./attendee/AttendeeNewContainer"
-import AttendeeShowPage from "./attendee/AttendeeShowPage"
 import AttendeeSingleContainer from "./attendee/AttendeeSingleContainer"
 
 import NavBar from "./NavBar"
-
 import MainPage from "./MainPage"
 
 import MeetingIndexContainer from "./meeting/MeetingIndexContainer"
@@ -37,11 +35,11 @@ const PageLayout = (props) => {
           <h2>  top </h2>
         </div>
 
-        <div className = "cell auto small-4 medium-8 large-8 mainpane" >
-          <div className = "grid-x grid-margin-x" style={{ height: "100%" }}>
+        <div className = "cell auto small-2 medium-8 large-8 mainpane" >
+          <div className = "grid-x grid-margin-x grid-padding-x" style={{ height: "100%" }}>
 
             <div className = "cell small-1 medium-2 large-2 cell-block-y leftpane" style={{ height: "100%" }}>
-              <h2> left</h2>
+              <h4> Left </h4>
               <NavBar/>
               {listElement}
             </div>
@@ -76,9 +74,7 @@ const PageLayout = (props) => {
         </div>
  
       </div>
-
   )
-
 }
 
 export default PageLayout
