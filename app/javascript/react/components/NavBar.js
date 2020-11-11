@@ -27,6 +27,10 @@ const NavBar = (props) => {
        <NavTile text="Messages"/>
       </Link>
 
+      <Link className = "cell" to ="/signups/">
+        <NavTile text="Sign Ups" />
+      </Link>
+
     </div>
   </div>)
 

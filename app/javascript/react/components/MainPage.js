@@ -34,6 +34,12 @@ const MainPage = (props) => {
           </Link> 
         </div>
 
+        <div className = "cell">
+          <Link to = "/signups/">
+            <MainPageTile text="Sign Ups" image=""/>
+          </Link>
+        </div>
+
       </div>
     </div>
 

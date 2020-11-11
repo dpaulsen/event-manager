@@ -13,6 +13,7 @@ import MeetingSingleContainer from"./meeting/MeetingSingleContainer"
 
 import ScrapbookIndexContainer from "./scrapbook/ScrapbookIndexContainer"
 import MessageIndexContainer from "./message/MessageIndexContainer"
+import SignupIndexContainer from "./signup/SignupIndexContainer"
 
 const PageLayout = (props) => {
 
@@ -58,6 +59,7 @@ const PageLayout = (props) => {
                   <Route exact path = "/messages/" component ={MessageIndexContainer} />
                   
                   <Route exact path = "/scrapbooks/" component ={ScrapbookIndexContainer} />
+                  <Route exact path = "/signups/" component = {SignupIndexContainer} />
                 </Switch>
             </div>
 
