@@ -198,10 +198,10 @@ const AttendeeSingleContainer =(props) =>{
     </button>
   </div>);
 
-  let signupBlock = null;
-  if (attendee){
-    signupBlock = (<AttendeeSignupContainer attendee = {attendee}/>)
-  }
+  // let signupBlock = null;
+  // if (attendee){
+  //   signupBlock = (<AttendeeSignupContainer attendee = {attendee}/>)
+  // }
 
   
   if (toIndex){
@@ -232,7 +232,7 @@ const AttendeeSingleContainer =(props) =>{
         check name: 
         {attendee.first_name}
       </div>
-      {signupBlock}
+ 
 
     </div>
   )
