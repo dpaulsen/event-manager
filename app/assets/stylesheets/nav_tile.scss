@@ -23,3 +23,7 @@ $color_b2: #0000ff;
   height: 12rem;
   object-fit: cover;
 }
+
+.button:hover{
+  background: radial-gradient($color_b1, $color_b2);
+}

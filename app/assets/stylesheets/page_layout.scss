@@ -9,18 +9,23 @@ $color07: brown;
 $color08: pink;
 $color09: grey;
 
+$maincolor01: #4080e0;
+$maincolor02: #80e080;
+
 .wrapper{
   background-color: $color08;
 }
 
 .headerpane{
   background-color: $color07;
+  background-color: $maincolor01;
   position: sticky;
   top: 0px;
 }
 
 .footerpane{
   background-color: $color06;
+  background-color: $maincolor02;
   position: sticky;
   bottom: 0px;
 }
@@ -31,11 +36,14 @@ $color09: grey;
 
 .leftpane{
   background-color: $color04;
+  background-image: linear-gradient($maincolor01, $maincolor02);
 }
 .rightpane{
   background-color: $color05;
+  background-image: linear-gradient($maincolor01, $maincolor02);
 }
 
 .centerpane{
   background-color: $color09;
+  background-image: linear-gradient($maincolor01, $maincolor02);
 }

@@ -1,9 +1,14 @@
 import React from "react"
+import {Redirect} from "react-router-dom"
 import AttendeeIndexPage from "./AttendeeIndexPage"
 
 const AttendeeIndexContainer = (props) => {
+  
+  const [toNew,setToNew] =React.useState(false)
 
   const [guestList, setGuestList] = React.useState([])
+
+
 
   React.useEffect(() => {
     fetch("/api/v1/attendees")
@@ -23,8 +28,27 @@ const AttendeeIndexContainer = (props) => {
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
 
+  const onAddHandler = (event) => {
+    setToNew(true);
+  }
+
+  if (toNew){
+    return (<Redirect to="/attendees/new" />);
+  }
+
   return (
-    <AttendeeIndexPage guestList = {guestList}/>
+    <div>
+      <AttendeeIndexPage guestList = {guestList}/>
+      <hr/>
+      <button 
+        className = "button"
+        type = "button"
+        id = "edit-attendee"
+        onClick = {onAddHandler}
+      >
+        Add - New Guest
+      </button>
+    </div>
   )
 
 }
