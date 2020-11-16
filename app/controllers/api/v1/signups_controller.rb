@@ -25,4 +25,28 @@ class Api::V1::SignupsController < ApiController
     end
   end
 
+  def update
+    attendee_id = params[:attendee_id]
+    check_list = params[:check_list]
+    meeting_list = params[:meeting_list]
+
+    binding.pry
+    
+    meeting_list.each do |meeting| 
+      binding.pry
+      if (meeting[:status] == nil) 
+        if (check_list[meeting[:id]] != nil)
+          binding.pry
+          # Singup.new ( )
+
+      elsif ((meeting[:status] == 2)  != check_list[meeting[:id]])
+        binding.pry
+        # Singup.find( ??)
+      end
+
+    end
+
+
+  end
+
 end

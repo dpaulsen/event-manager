@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_161258) do
+ActiveRecord::Schema.define(version: 2020_11_13_170953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,15 +30,15 @@ ActiveRecord::Schema.define(version: 2020_11_11_161258) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "signups_tables", force: :cascade do |t|
+  create_table "signups", force: :cascade do |t|
     t.bigint "attendee_id", null: false
     t.bigint "meeting_id", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["attendee_id", "meeting_id"], name: "index_signups_tables_on_attendee_id_and_meeting_id", unique: true
-    t.index ["attendee_id"], name: "index_signups_tables_on_attendee_id"
-    t.index ["meeting_id"], name: "index_signups_tables_on_meeting_id"
+    t.index ["attendee_id", "meeting_id"], name: "index_signups_on_attendee_id_and_meeting_id", unique: true
+    t.index ["attendee_id"], name: "index_signups_on_attendee_id"
+    t.index ["meeting_id"], name: "index_signups_on_meeting_id"
   end
 
   create_table "users", force: :cascade do |t|

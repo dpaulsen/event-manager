@@ -18,6 +18,7 @@ const AttendeeSingleContainer =(props) =>{
 
   const [mode, setMode] = useState(MODES.SHOW);
   const [toIndex, setToIndex] = useState(false);
+  const [errors, setErrors] = useState(null);
 
   const [attendee, setAttendee] = useState({
     id: null,
@@ -198,6 +199,10 @@ const AttendeeSingleContainer =(props) =>{
     </button>
   </div>);
 
+  let signupBlock = null;
+  if (attendee.id !==null){
+    signupBlock =( <AttendeeSignupContainer attendee = {attendee}/>)
+  }
   // let signupBlock = null;
   // if (attendee){
   //   signupBlock = (<AttendeeSignupContainer attendee = {attendee}/>)
@@ -231,6 +236,10 @@ const AttendeeSingleContainer =(props) =>{
       <div> 
         check name: 
         {attendee.first_name}
+      </div>
+      <div>
+        signups:
+        {signupBlock}
       </div>
  
 

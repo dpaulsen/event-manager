@@ -12,10 +12,11 @@ const AttendeeShowPage = (props) => {
       <h4> Name: {attendee.fullName} </h4>
       <h6> email: {attendee.email}</h6>
 
-      <AttendeeSignupContainer attendee = {attendee}/>
     </div>
   )
-
+  
 }
 
 export default AttendeeShowPage
+
+//<AttendeeSignupContainer attendee = {attendee}/>

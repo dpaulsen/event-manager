@@ -1,0 +1,43 @@
+SELECT "meetings".* FROM "meetings" INNER JOIN "signups" ON "meetings"."id" = "signups"."meeting_id" WHERE "signups"."attendee_id" = $
+
+
+
+ SELECT "meetings".* FROM "meetings" INNER JOIN "signups" ON "meetings"."id" = "signups"."meeting_id" WHERE "signups"."attendee_id" = $1
+
+
+  Meeting.find_by_sql("SELECT * FROM meetings LEFT OUTER JOIN signups ON meetings.id = signups.meeting_id WHERE signups.attendee_id = 1")
+
+sql = "Select * from ... your sql query here"
+records_array = ActiveRecord::Base.connection.execute(sql)
+
+sql = "SELECT  * FROM meetings"
+records_array = ActiveRecord::Base.connection.execute(sql)
+
+sql = "SELECT meetings.id, meetings.name, signup.id AS signupId, signups.status FROM meetings LEFT OUTER JOIN signups ON meetings.id = signups.meeting_id AND signups.attendee_id = 1"
+meeting_array = ActiveRecord::Base.connection.execute(sql)
+
+sql = "SELECT meetings.id, meetings.name INNER JOIN signups ON meeting.id = signups.meeting_id WHERE signups.attendee_id = 1"
+meeting_array = ActiveRecord::Base.connection.execute(sql)
+
+Is anyone else doing a custom SQL query just to fill out a check box properly?  Or is it just me that has gone "off the rails"?
+
+enum status: { no: -2, cancle: -1, abstain: 0, interested: 1, yes: 2}
+
+test = meeting_array.map  do |x| 
+  case x["status"] 
+     
+    when -2
+      x["status"] = "no"
+    when -1
+      x["status"] = "cancle"
+    when 0
+      x["status"] = "abstain"
+    when 1
+      x["status"] = "interested"
+    when 2
+      x["status"] = "yes"
+    end
+    return x
+end
+
+test.each { |x| puts x}
