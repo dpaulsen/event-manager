@@ -207,11 +207,6 @@ const AttendeeSingleContainer =(props) =>{
   if (attendee.id !==null){
     signupBlock =( <AttendeeSignupContainer attendee = {attendee}/>)
   }
-  // let signupBlock = null;
-  // if (attendee){
-  //   signupBlock = (<AttendeeSignupContainer attendee = {attendee}/>)
-  // }
-
   
   if (toIndex){
     return <Redirect to="/attendees/" />;
@@ -236,12 +231,8 @@ const AttendeeSingleContainer =(props) =>{
       <div >
         {displayTile}
       </div>
-      <div> 
-        check name: 
-        {attendee.first_name}
-      </div>
+
       <div>
-        signups:
         {signupBlock}
       </div>
  

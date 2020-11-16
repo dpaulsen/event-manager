@@ -11,11 +11,11 @@ const AttendeeSignupIndex = (props) => {
 
   return (
     <div>
-      <h4> {props.attendee.fullName} is currently signed up for: </h4>
+     <h6> Events {props.attendee.fullName} is Signed up to go to: </h6>
       <ul>
         {displayList}
       </ul> 
-      <button onClick={props.onEditHandler}> 
+      <button className = "button" onClick={props.onEditHandler}> 
         Edit Event Signup 
       </button> 
     </div>

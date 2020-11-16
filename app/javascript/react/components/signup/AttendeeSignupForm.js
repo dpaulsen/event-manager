@@ -19,14 +19,15 @@ const AttendeeSignupForm = (props) => {
       <h4> Which events is {props.attendee.fullName} attending: </h4>
 
       {displayList}
+      <div className ="button-group">
+        <button className ="button" onClick={props.submitSignupsHandler}>
+        Submit 
+        </button>
 
-      <button onClick={props.submitSignupsHandler}>
-       Submit 
-      </button>
-
-      <button onClick={props.onCancelHandler}> 
-        Cancel 
-      </button>
+        <button className = "button" onClick={props.onCancelHandler}> 
+          Cancel 
+        </button>
+      </div>
     </div>
   )
 

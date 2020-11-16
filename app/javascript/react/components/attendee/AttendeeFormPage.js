@@ -20,7 +20,6 @@ const AttendeeFormPage = (props) => {
 
   const onSubmitHandle = (event) => {
     event.preventDefault();
-    debugger
     props.submitAttendee(formFields)
   }
 

@@ -130,7 +130,7 @@ const AttendeeSignupContainer = (props) => {
 
   return (
     <div>
-      <h6> Select events {props.attendee.fullName} wants to go to: </h6>
+      
 
       {displayTile}
 
