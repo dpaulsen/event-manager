@@ -49,7 +49,7 @@ const AttendeeNewContainer = (props) => {
   </div>);
 
   const addAttendee = (formPayLoad) => {
-    debugger
+    
     fetch(`/api/v1/attendees`, {
       credentials: "same-origin",
       method: "POST",
@@ -71,7 +71,7 @@ const AttendeeNewContainer = (props) => {
     .then((response) => response.json())
     .then((newAttendee) => {
       if (!newAttendee.errors) {
-        debugger
+        
         setAttendee(newAttendee);
         setMode(MODES.SHOW);
       } else if (review.errors) {

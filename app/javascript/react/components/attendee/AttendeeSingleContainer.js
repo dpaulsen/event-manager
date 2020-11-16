@@ -142,19 +142,19 @@ const AttendeeSingleContainer =(props) =>{
   } 
   
   let modeTemp = null;
-  switch (mode) {
-    case MODES.SHOW:
-      modeTemp =(<p> mode is show </p>);
-      break;
-    case MODES.EDIT:
-      modeTemp =(<p> mode is edit </p>);
-      break;
-    case MODES.DELETE:
-      modeTemp =(<p> mode is delete </p>);
-      break;
-    default: 
-      modeTemp =(<p> error should never get here </p>);
-  }
+  // switch (mode) {
+  //   case MODES.SHOW:
+  //     modeTemp =(<p> mode is show </p>);
+  //     break;
+  //   case MODES.EDIT:
+  //     modeTemp =(<p> mode is edit </p>);
+  //     break;
+  //   case MODES.DELETE:
+  //     modeTemp =(<p> mode is delete </p>);
+  //     break;
+  //   default: 
+  //     modeTemp =(<p> error should never get here </p>);
+  // }
 
   const onModeClick = (event) =>{
     switch (event.currentTarget.id) {
@@ -175,15 +175,18 @@ const AttendeeSingleContainer =(props) =>{
 
   let buttonModesGroup = null;
 
-  buttonModesGroup = (<div>
+  buttonModesGroup = (<div className ="button-group">
     <button 
+      className = "button"
       type = "button"
       id = "edit-attendee"
       onClick = {onModeClick}
     >
       Edit
     </button>
+    
     <button 
+      className ="button"
       type = "button"
       id = "delete-attendee"
       onClick = {onModeClick}
@@ -191,6 +194,7 @@ const AttendeeSingleContainer =(props) =>{
       Delete
     </button>
     <button 
+      className = "button"
       type = "button"
       id = "show-attendee"
       onClick = {onModeClick}
@@ -203,11 +207,6 @@ const AttendeeSingleContainer =(props) =>{
   if (attendee.id !==null){
     signupBlock =( <AttendeeSignupContainer attendee = {attendee}/>)
   }
-  // let signupBlock = null;
-  // if (attendee){
-  //   signupBlock = (<AttendeeSignupContainer attendee = {attendee}/>)
-  // }
-
   
   if (toIndex){
     return <Redirect to="/attendees/" />;
@@ -219,10 +218,10 @@ const AttendeeSingleContainer =(props) =>{
     <div>
       <div >
         <div>
-        <h3> Attendee details </h3>
+        <h3> Attendee Details </h3>
+        <hr/>
         </div>
         <div>
-          <p> button choices </p> 
           {buttonModesGroup}
           <hr/>
           {modeTemp}
@@ -230,15 +229,10 @@ const AttendeeSingleContainer =(props) =>{
       </div>
 
       <div >
-        <p> info selection </p>
         {displayTile}
       </div>
-      <div> 
-        check name: 
-        {attendee.first_name}
-      </div>
+
       <div>
-        signups:
         {signupBlock}
       </div>
  
