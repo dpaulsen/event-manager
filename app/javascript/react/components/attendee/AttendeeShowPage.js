@@ -1,12 +1,8 @@
 import React from "react"
-import AttendeeSignupContainer from "../signup/AttendeeSignupContainer";
-
-
 
 const AttendeeShowPage = (props) => {
   const attendee = props.attendee;
 
-  debugger
   return (
     <div>
       <h4> Name: {attendee.fullName} </h4>
@@ -18,5 +14,3 @@ const AttendeeShowPage = (props) => {
 }
 
 export default AttendeeShowPage
-
-//<AttendeeSignupContainer attendee = {attendee}/>

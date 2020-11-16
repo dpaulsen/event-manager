@@ -4,19 +4,6 @@ const AttendeeSignupForm = (props) => {
 
   let displayList = null;
 
-  //const [checkList, setCheckList] = useState({});
-
-
-
-  // const checkHandler = (event) => {
-  //   debugger 
-  //   setCheckList({...checkList, 
-  //     [event.currentTarget.id]: event.currentTarget.checked,
-  //   })
-  //   debugger
-  // }
-
-  debugger 
   displayList = props.meetingList.map( (meeting) =>{
     return (
       <div key = {meeting.id}>

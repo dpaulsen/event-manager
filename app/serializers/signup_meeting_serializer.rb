@@ -5,5 +5,4 @@ class SignupMeetingSerializer < ActiveModel::Serializer
     return object.meeting.name
   end
 
-
 end

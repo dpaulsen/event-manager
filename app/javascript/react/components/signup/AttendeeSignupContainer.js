@@ -19,13 +19,10 @@ const AttendeeSignupContainer = (props) => {
 
   const [mode, setMode] = useState(MODES.INDEX);
 
-  debugger
   useEffect(() => {
-    debugger
     let id = attendee.id // temp need to get props to pass this correctly ( or not call to esarly)
     fetch(`/api/v1/attendees/${id}/meetings`)
       .then((response) => {
-        debugger
         if (response.ok) {
           return response;
         } else {
@@ -36,15 +33,12 @@ const AttendeeSignupContainer = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        debugger
         setMeetingList(body);
-        debugger 
         let x = {}        
         body.forEach( (item) =>{
                   x[item.id] = item.status === null ? null :item.status === 2 
                 })
         setCheckList(x);
-        debugger
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, [reload]);
@@ -89,18 +83,15 @@ const AttendeeSignupContainer = (props) => {
   }
 
   const onCancelHandler = (event) =>{
-    debugger
     resetCheckList()
     setMode(MODES.INDEX);
   }
 
   const onEditHandler = (event) =>{
-    debugger
     setMode(MODES.EDIT);
   }
 
   const onSubmitHandler = (event) => { 
-    debugger
     let payload = {attendee_id: attendee.id,
                    meeting_list: meetingList,
                    check_list: checkList}
@@ -109,11 +100,9 @@ const AttendeeSignupContainer = (props) => {
   }
 
   const checkHandler = (event) => {
-    debugger 
     setCheckList({...checkList, 
       [event.currentTarget.id]: event.currentTarget.checked,
     })
-    debugger
   }
 
   let displayTile = null;
@@ -139,7 +128,6 @@ const AttendeeSignupContainer = (props) => {
     displayTile = (<p> that is not implemented</p>)
   }
 
-debugger 
   return (
     <div>
       <h6> Select events {props.attendee.fullName} wants to go to: </h6>
@@ -148,7 +136,6 @@ debugger
 
       <div> 
     
-
       </div>
     </div>
   )
