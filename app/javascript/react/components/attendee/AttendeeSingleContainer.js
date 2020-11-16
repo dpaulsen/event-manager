@@ -4,6 +4,7 @@ import {Redirect} from "react-router-dom"
 import AttendeeFormPage from "./AttendeeFormPage"
 import AttendeeShowPage from "./AttendeeShowPage"
 import AttendeeDeletePage from"./AttendeeDeletePage"
+import AttendeeSignupContainer from "../signup/AttendeeSignupContainer"
 
 const AttendeeSingleContainer =(props) =>{
 
@@ -17,6 +18,7 @@ const AttendeeSingleContainer =(props) =>{
 
   const [mode, setMode] = useState(MODES.SHOW);
   const [toIndex, setToIndex] = useState(false);
+  const [errors, setErrors] = useState(null);
 
   const [attendee, setAttendee] = useState({
     id: null,
@@ -201,10 +203,21 @@ const AttendeeSingleContainer =(props) =>{
     </button>
   </div>);
 
+  let signupBlock = null;
+  if (attendee.id !==null){
+    signupBlock =( <AttendeeSignupContainer attendee = {attendee}/>)
+  }
+  // let signupBlock = null;
+  // if (attendee){
+  //   signupBlock = (<AttendeeSignupContainer attendee = {attendee}/>)
+  // }
+
   
   if (toIndex){
     return <Redirect to="/attendees/" />;
   }
+
+  
 
   return( 
     <div>
@@ -223,6 +236,16 @@ const AttendeeSingleContainer =(props) =>{
       <div >
         {displayTile}
       </div>
+      <div> 
+        check name: 
+        {attendee.first_name}
+      </div>
+      <div>
+        signups:
+        {signupBlock}
+      </div>
+ 
+
     </div>
   )
 
