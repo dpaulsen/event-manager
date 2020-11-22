@@ -7,6 +7,7 @@ import AttendeeSingleContainer from "./attendee/AttendeeSingleContainer"
 
 import NavBar from "./NavBar"
 import MainPage from "./MainPage"
+import HeaderPage from "./HeaderPage"
 
 import MeetingIndexContainer from "./meeting/MeetingIndexContainer"
 import MeetingSingleContainer from"./meeting/MeetingSingleContainer"
@@ -14,6 +15,7 @@ import MeetingSingleContainer from"./meeting/MeetingSingleContainer"
 import ScrapbookIndexContainer from "./scrapbook/ScrapbookIndexContainer"
 import MessageIndexContainer from "./message/MessageIndexContainer"
 import SignupIndexContainer from "./signup/SignupIndexContainer"
+import { headOnce } from "fetch-mock"
 
 const PageLayout = (props) => {
 
@@ -33,6 +35,7 @@ const PageLayout = (props) => {
       <div className="grid-y grid-frame wrapper" > 
       
         <div className = "cell shrink small-1 medium-1 large-1 headerpane">
+          <HeaderPage/>
           <h2 className="text-center"> Date: April 10, 2021</h2>
         </div>
 

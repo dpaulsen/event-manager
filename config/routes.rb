@@ -25,6 +25,8 @@ Rails.application.routes.draw do
       end
       resources :meetings, only: [:index, :show]
       resources :signups, only: [:index, :create, :update]
+
+      get 'reset', to: 'utilities#reset'
       
     end
   end

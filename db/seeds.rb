@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Attendee.destroy_all
 a1 = Attendee.create(first_name: "John", last_name: "Smith")
 a2 = Attendee.create(first_name: "Amy", last_name: "Skinner")
 a3 = Attendee.create(first_name: "Paul", last_name: "Jones", email: "pj@coolmail.com")
@@ -19,6 +20,7 @@ a10 = Attendee.create(first_name: "Paul", last_name: "Simpson")
 a11 = Attendee.create(first_name: "aLex", last_name: "PARKER", email: "ap@coolmail.com")
 a12 = Attendee.create(first_name: "asfasdf", last_name: "dasdfsadf", email: "testing@testing.com")
 
+Meeting.destroy_all
 m1 = Meeting.create(name: "Evening before Reception",
                     description: "Meet the Bride and Groom before the big day!")
 m2 = Meeting.create(name: "Rehersal - Diner")
@@ -30,6 +32,7 @@ m6 = Meeting.create(name: "Formal Dinner", description: "Seafood dinner followin
 m7 = Meeting.create(name: "Dance", description: "Dancing with beachside Riparian Entertainment.")
 m8 = Meeting.create(name: "After - Party", description: "Casual gathering after formal events conclude.")
 
+Signup.destroy_all
 s1 = Signup.create(attendee: a1, meeting: m5, status: :yes)
 s2 = Signup.create(attendee: a2, meeting: m5, status: :yes)
 s3 = Signup.create(attendee: a3, meeting: m5, status: :yes)
