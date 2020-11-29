@@ -25,7 +25,8 @@ class Api::V1::SignupsController < ApiController
     end
   end
 
-  def update
+  def custom
+
     attendee_id = params[:attendee_id]
     check_list = params[:check_list]
     meeting_list = params[:meeting_list]
@@ -55,7 +56,7 @@ class Api::V1::SignupsController < ApiController
     end
 
     render json: {attendeeId: attendee_id}
-
   end
+
 
 end

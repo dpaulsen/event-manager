@@ -45,7 +45,9 @@ const AttendeeSignupContainer = (props) => {
 
   const updateSignups = (updates) => {
     let payload = updates;
-    fetch(`/api/v1/signups/1`, {
+    // real path..
+    fetch(`/api/v1/customroute`, {
+    //fetch(`/api/v1/signups/1`, {
       credentials: "same-origin",
       method: "PATCH",
       body: JSON.stringify(payload),

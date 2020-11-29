@@ -24,7 +24,9 @@ Rails.application.routes.draw do
         resources :meetings, only: [:index]
       end
       resources :meetings, only: [:index, :show]
-      resources :signups, only: [:index, :create, :update]
+      resources :signups, only: [:index, :create]
+
+      patch 'customroute', to: 'signups#custom'
 
       get 'reset', to: 'utilities#reset'
       
