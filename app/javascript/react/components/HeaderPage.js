@@ -1,11 +1,14 @@
-import React from "react"
+import React, {useState} from "react"
+import {Redirect} from "react-router-dom"
 
 const HeaderPage = (props) => {
+
+  const [toMain, setToMain] = useState(false);
 
   const onResetDefaultsClick = (event) =>{
     fetch(`/api/v1/reset`)
     .then((response) => {
-      debugger
+      
       if (response.ok) {
         return response;
       } else {
@@ -15,15 +18,18 @@ const HeaderPage = (props) => {
       }
     })
     .then((response) => {
-      debugger
       response.json()})
     .then((body) => {
-      debugger
-      
+      setToMain(true);
     })
     .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }
 
+  // not working quite right.  
+  if (toMain){
+    setToMain(false);
+    return <Redirect to="/" />;
+  }
 
 
   return ( <div>
