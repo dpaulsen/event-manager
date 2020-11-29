@@ -55,7 +55,12 @@ class Api::V1::SignupsController < ApiController
     end
 
     render json: {attendeeId: attendee_id}
+  end
+
+  def custom
+    binding.pry
 
   end
+
 
 end
