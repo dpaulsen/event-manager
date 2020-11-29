@@ -26,6 +26,9 @@ class Api::V1::SignupsController < ApiController
   end
 
   def update
+    # remove ? 
+    # binding.pry
+    # puts " in update"
     attendee_id = params[:attendee_id]
     check_list = params[:check_list]
     meeting_list = params[:meeting_list]
@@ -58,8 +61,36 @@ class Api::V1::SignupsController < ApiController
   end
 
   def custom
-    binding.pry
 
+    attendee_id = params[:attendee_id]
+    check_list = params[:check_list]
+    meeting_list = params[:meeting_list]
+  
+    meeting_list.each do |meeting| 
+
+      if (meeting[:status] == nil) 
+        if (check_list[meeting[:id].to_s] != nil)
+
+          m = Meeting.find_by(id: meeting[:id])
+          a = Attendee.find_by(id: attendee_id)
+          s = Signup.new( meeting: m, 
+                          attendee: a, 
+                          status: check_list[meeting[:id].to_s] ? :yes : :no
+          )
+          s.save
+
+        end
+
+      elsif ((meeting[:status] == 2)  != check_list[meeting[:id].to_s])
+
+        s = Signup.find_by(meeting: meeting[:id], attendee: attendee_id)
+        s.status = (check_list[meeting[:id].to_s]) ? :yes : :no
+         s.save
+      end
+
+    end
+
+    render json: {attendeeId: attendee_id}
   end
 
 
