@@ -1,6 +1,8 @@
 $color_b1: #e97dbf;
 $color_b2: #ebaff7;
 
+$color_card: rosybrown;
+
 .box-shadow {
   box-shadow: 0 4px 20px 0 grey;
 }
@@ -15,7 +17,7 @@ $color_b2: #ebaff7;
 }
 
 .nav-card {
-  background: radial-gradient($color_b2, $color_b1);
+  background: $color_card;
   color: #ffffff;
 }
 
